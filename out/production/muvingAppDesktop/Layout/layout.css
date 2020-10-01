@@ -1,0 +1,170 @@
+.root{
+    -fx-background-color:  #212226;
+}
+
+.label{
+    -fx-font-family: "Montserrat";
+    -fx-font-size: 15px;
+    -fx-font-weight: 100;
+    -fx-text-fill: #e6e6e6;
+}
+
+#login-button{
+    -fx-background-color: #f14666;
+    -fx-font-family: "Montserrat";
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+}
+.textfield-login{
+    -fx-background-color: #252628;
+    -fx-border-color: #3F3F3F;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-font-family: "Montserrat";
+    -fx-font-size: 13px;
+    -fx-text-fill: #e6e6e6;
+    -fx-prompt-text-fill: #b33950;
+}
+
+#app-name{
+    -fx-font-family: "chiller";
+    -fx-font-size: 100px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #f14666;
+}
+
+/*
+table layout
+ */
+
+.table-view{
+    -fx-background-color: #212226;
+    -fx-border-color: #38383A;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-table-cell-border-color: #38383A;
+    -fx-table-header-border-color: #38383A;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: #38383A;
+    -fx-border-radius: 5 5 0 0;
+    -fx-background-radius: 5 5 0 0;
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: #EE8980;
+    -fx-font-family: "Montserrat";
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .filler{
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: white;
+    -fx-font-family: "Montserrat";
+}
+
+.table-row-cell{
+    -fx-background-color: -fx-table-cell-border-color, #212226;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */
+    -fx-cell-size: 40px;
+}
+
+.table-row-cell:odd{
+    -fx-background-color: -fx-table-cell-border-color, #2C2D30;
+
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #8ea58a;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+    -fx-table-cell-border-color: transparent;
+    -fx-text-fill: black;
+}
+
+.table-view > .virtual-flow > .scroll-bar:vertical,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track-background,
+.table-view > .virtual-flow > .scroll-bar:horizontal,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track-background {
+    -fx-background-color: transparent;
+}
+
+.table-view *.scroll-bar:horizontal *.increment-button,
+.table-view *.scroll-bar:horizontal *.decrement-button {
+    -fx-background-color: null;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.table-view *.scroll-bar:horizontal *.increment-arrow,
+.table-view *.scroll-bar:horizontal *.decrement-arrow {
+    -fx-background-color: null;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-shape: null;
+}
+.scroll-bar:horizontal .thumb, .scroll-bar:vertical .thumb {
+    -fx-background-color: #919191;
+    -fx-background-radius: 7em;
+}
+
+.table-view > .virtual-flow > .scroll-bar > .increment-button,
+.table-view > .virtual-flow > .scroll-bar > .decrement-button {
+    -fx-opacity: 0;
+}
+
+.red-button{
+    -fx-background-color: #f14666;
+    -fx-font-family: "Montserrat";
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+}
+
+.button-type2{
+    -fx-background-color: transparent;
+    -fx-border-color: #FFCDAA;
+    -fx-border-radius: 15;
+    -fx-font-family: "Montserrat";
+    -fx-font-size: 13px;
+    -fx-font-weight: 200;
+    -fx-text-fill: #FFCDAA;
+}
+
+.textfield-reviews{
+    -fx-background-color: #252628;
+    -fx-border-color: #3F3F3F;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-font-family: "Montserrat";
+    -fx-font-size: 13px;
+    -fx-text-fill: #FFCDAA;
+    -fx-prompt-text-fill: #c4a791;
+}
+
+/*
+finestra recensione
+ */
+#review-box{
+    -fx-background-color: #2C2D30;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}

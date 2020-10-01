@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ReviewsPageController">
+   <children>
+      <BorderPane layoutX="140.0" layoutY="274.0" prefHeight="650.0" prefWidth="900.0" stylesheets="../Layout/layout.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <VBox alignment="CENTER" maxHeight="-Infinity" prefHeight="550.0" prefWidth="910.0" spacing="18.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="897.0" spacing="22.0">
+                     <children>
+                        <TextField prefHeight="30.0" prefWidth="220.0" promptText="Inserire luogo" styleClass="textfield-reviews">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></TextField>
+                        <TextField prefHeight="30.0" prefWidth="220.0" promptText="Inserire struttura" styleClass="textfield-reviews">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></TextField>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="193.0" prefWidth="301.0" />
+                        <Button id="find-button" mnemonicParsing="false" prefWidth="90.0" styleClass="button-type2" text="Cerca">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <TableView fx:id="table" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="437.0" prefWidth="898.0">
+                    <columns>
+                        <TableColumn fx:id="colonnaLuogo" editable="false" maxWidth="1.7976931348623157E308" prefWidth="200.0" resizable="false" text="Luogo" />
+                      <TableColumn fx:id="colonnaStruttura" editable="false" maxWidth="1.7976931348623157E308" prefWidth="220.0" resizable="false" text="Struttura" />
+                      <TableColumn fx:id="colonnaAutore" editable="false" maxWidth="1.7976931348623157E308" prefWidth="180.0" resizable="false" text="Autore" />
+                        <TableColumn fx:id="colonnaRecensione" editable="false" maxWidth="1.7976931348623157E308" prefWidth="189.0" resizable="false" text="Titolo recensione" />
+                        <TableColumn fx:id="colonnaData" editable="false" maxWidth="1.7976931348623157E308" prefWidth="90.0" resizable="false" text="Data" />
+                    </columns>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </TableView>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+         <bottom>
+            <HBox alignment="TOP_CENTER" maxHeight="-Infinity" prefHeight="85.0" prefWidth="201.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="showButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#showReview" prefHeight="30.0" prefWidth="150.0" styleClass="button-type2" text="Visualizza">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="7.0" />
+               </BorderPane.margin>
+            </HBox>
+         </bottom>
+         <top>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" styleClass="red-button" text="Esci" BorderPane.alignment="CENTER_RIGHT">
+               <BorderPane.margin>
+                  <Insets right="39.0" top="13.0" />
+               </BorderPane.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
