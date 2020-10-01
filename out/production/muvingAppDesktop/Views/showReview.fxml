@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ShowReviewController">
    <children>
-      <BorderPane prefHeight="600.0" prefWidth="1000.0" stylesheets="../Layout/layout.css">
+      <BorderPane prefHeight="600.0" prefWidth="1000.0" stylesheets="/Layout/layout.css">
          <center>
             <VBox id="review-box" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="790.0" BorderPane.alignment="CENTER">
                <children>

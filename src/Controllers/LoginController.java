@@ -39,7 +39,7 @@ public class LoginController {
         }
         else{
             //controllo se le credenziali sono giuste e in caso positivo cambio la scena
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Views/reviewsPage.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/reviewsPage.fxml"));
 
             reviewList.add(new Review("Napoli","400 gradi Di Ciro & Salvio Rapuano","Peppe98","Ottima pizza ai quartieri spagnoli","Spinto dalle ottime recensioni decidiamo di andare in questa piccola pizzeria dei quartieri spagnoli e non c’è stata scelta migliore ottima pizza dal impasto super leggero e personale molto attento...consiglio di andarci...grazie mille a Salvio per la sua ospitalità...ci rivedremo presto...","10/06/2020"));
             reviewList.add(new Review("Torre Del Greco","MM Lounge Restauran","Giovix2","Cena sublime","Cortesia, eleganza, ottima qualità del cibo. Sono questi i principali elementi che contraddistinguono questo ristorante. Ogni piatto ben presentato, perfettamente curato, un piacere per occhi e palato, dall'antipasto al dolce, con un ampia possibilità di scelta dei vini. Servizio perfetto, cena sublime.\n" +
@@ -53,7 +53,7 @@ public class LoginController {
             try {
                 Parent rootLayout = fxmlLoader.load();
                 Scene scene = new Scene(rootLayout);
-                scene.getStylesheets().add("layout.css");
+                scene.getStylesheets().add("/Layout/layout.css");
                 mainStage.setScene(scene);
 
                 ReviewsPageController reviewsPageController = fxmlLoader.getController();

@@ -78,12 +78,12 @@ public class ReviewsPageController implements Initializable {
     //funzione che crea la finestra che mostra i dati della recensione scelta
     public void openReview(){
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Views/showReview.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/showReview.fxml"));
         try {
             Parent rootLayout = fxmlLoader.load();
             Scene scene = new Scene(rootLayout);
             stage.setScene(scene);
-            scene.getStylesheets().add("layout.css");
+            scene.getStylesheets().add("/Layout/layout.css");
             stage.setTitle("Recensione");
             ShowReviewController controller = fxmlLoader.getController();
             controller.setReview(selectedReview);

@@ -20,7 +20,7 @@ public class muvingApplication extends Application {
             Parent rootLayout = fxmlLoader.load();
             Scene scene = new Scene(rootLayout);
             stage.setScene(scene);
-            //scene.getStylesheets().add("/Layout/layout.css");
+            scene.getStylesheets().add("/Layout/layout.css");
             stage.setTitle("Login");
             LoginController controller = fxmlLoader.getController();
             controller.setMainStage(stage);
