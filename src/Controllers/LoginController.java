@@ -11,14 +11,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 
-public class LoginController {
+public class LoginController extends Component {
 
     @FXML public Button loginButton;
     public TextField idAdmin;
     public TextField passwordAdmin;
     private Stage mainStage;
+
+    LoginDialogController loginDialogController;
+    boolean isLogged;
+
 
     /*
       le classi di visualizzazione hanno bisogno di essere informate su eventuali modifiche apportate
@@ -38,36 +44,50 @@ public class LoginController {
             }
         }
         else{
-            //controllo se le credenziali sono giuste e in caso positivo cambio la scena
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/reviewsPage.fxml"));
+            loginDialogController = new LoginDialogController();
+            String username = idAdmin.getText();
+            String password = passwordAdmin.getText();
+            int result = loginDialogController.loginAdmin(username,password);
+            if (result == 1){
+                isLogged = true;
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/reviewsPage.fxml"));
 
-            reviewList.add(new Review("Napoli","400 gradi Di Ciro & Salvio Rapuano","Peppe98","Ottima pizza ai quartieri spagnoli","Spinto dalle ottime recensioni decidiamo di andare in questa piccola pizzeria dei quartieri spagnoli e non c’è stata scelta migliore ottima pizza dal impasto super leggero e personale molto attento...consiglio di andarci...grazie mille a Salvio per la sua ospitalità...ci rivedremo presto...","10/06/2020"));
-            reviewList.add(new Review("Torre Del Greco","MM Lounge Restauran","Giovix2","Cena sublime","Cortesia, eleganza, ottima qualità del cibo. Sono questi i principali elementi che contraddistinguono questo ristorante. Ogni piatto ben presentato, perfettamente curato, un piacere per occhi e palato, dall'antipasto al dolce, con un ampia possibilità di scelta dei vini. Servizio perfetto, cena sublime.\n" +
-                    "Un ringraziamento ai camerieri in servizio ieri sera per il servizio perfetto!(20 settembre 2020)\n" +
-                    "Complimenti allo Chef!","23/08/2020"));
-            reviewList.add(new Review("Torre Del Greco","MM Lounge Restauran","Giovix2","Cena sublime","Cortesia, eleganza, ottima qualità del cibo. Sono questi i principali elementi che contraddistinguono questo ristorante. Ogni piatto ben presentato, perfettamente curato, un piacere per occhi e palato, dall'antipasto al dolce, con un ampia possibilità di scelta dei vini. Servizio perfetto, cena sublime.\n" +
-                    "Un ringraziamento ai camerieri in servizio ieri sera per il servizio perfetto!(20 settembre 2020)\n" +
-                    "Complimenti allo Chef!","23/08/2020"));
+                reviewList.add(new Review("Napoli","400 gradi Di Ciro & Salvio Rapuano","Peppe98","Ottima pizza ai quartieri spagnoli","Spinto dalle ottime recensioni decidiamo di andare in questa piccola pizzeria dei quartieri spagnoli e non c’è stata scelta migliore ottima pizza dal impasto super leggero e personale molto attento...consiglio di andarci...grazie mille a Salvio per la sua ospitalità...ci rivedremo presto...","10/06/2020"));
+                reviewList.add(new Review("Torre Del Greco","MM Lounge Restauran","Giovix2","Cena sublime","Cortesia, eleganza, ottima qualità del cibo. Sono questi i principali elementi che contraddistinguono questo ristorante. Ogni piatto ben presentato, perfettamente curato, un piacere per occhi e palato, dall'antipasto al dolce, con un ampia possibilità di scelta dei vini. Servizio perfetto, cena sublime.\n" +
+                        "Un ringraziamento ai camerieri in servizio ieri sera per il servizio perfetto!(20 settembre 2020)\n" +
+                        "Complimenti allo Chef!","23/08/2020"));
+                reviewList.add(new Review("Torre Del Greco","MM Lounge Restauran","Giovix2","Cena sublime","Cortesia, eleganza, ottima qualità del cibo. Sono questi i principali elementi che contraddistinguono questo ristorante. Ogni piatto ben presentato, perfettamente curato, un piacere per occhi e palato, dall'antipasto al dolce, con un ampia possibilità di scelta dei vini. Servizio perfetto, cena sublime.\n" +
+                        "Un ringraziamento ai camerieri in servizio ieri sera per il servizio perfetto!(20 settembre 2020)\n" +
+                        "Complimenti allo Chef!","23/08/2020"));
 
 
-            try {
-                Parent rootLayout = fxmlLoader.load();
-                Scene scene = new Scene(rootLayout);
-                scene.getStylesheets().add("/Layout/layout.css");
-                mainStage.setScene(scene);
+                try {
+                    Parent rootLayout = fxmlLoader.load();
+                    Scene scene = new Scene(rootLayout);
+                    scene.getStylesheets().add("/Layout/layout.css");
+                    mainStage.setScene(scene);
 
-                ReviewsPageController reviewsPageController = fxmlLoader.getController();
-                reviewsPageController.setMainPage(this);
+                    ReviewsPageController reviewsPageController = fxmlLoader.getController();
+                    reviewsPageController.setMainPage(this);
 
-                mainStage.setTitle("Applicazione");
+                    mainStage.setTitle("Applicazione");
 
-            }catch (IOException e){
-                throw new RuntimeException(e);
+                }catch (IOException e){
+                    throw new RuntimeException(e);
+                }
+                mainStage.show();
+            }else if (result == 0){
+                JOptionPane.showMessageDialog(this,"L'utente non possiede i permessi per accedere!","Accesso negato",JOptionPane.ERROR_MESSAGE);
+                isLogged = false;
+            }else{
+                JOptionPane.showMessageDialog(this,"Le credenziali inserite sono errate. Riprovare","Accesso negato",JOptionPane.ERROR_MESSAGE);
+                isLogged = false;
             }
-            mainStage.show();
         }
 
     }
+
+
 
     public ObservableList<Review> getReviewList(){
         return reviewList;
