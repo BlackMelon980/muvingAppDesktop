@@ -11,7 +11,7 @@ import com.google.gson.JsonObject;
 
 public class LoginDAOimpl implements LoginDAO {
 
-    private static final String signIn = "http://localhost:5000/api/auth/signin";
+    private static final String signIn = "http://localhost:8080/api/auth/signin";
 
     @Override
     public String logIn(String usernameOrEmail, String password) {

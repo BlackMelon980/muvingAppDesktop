@@ -1,5 +1,10 @@
 .root{
     -fx-background-color:  #212226;
+    -fx-background-image: url("draw.png");
+    -fx-background-size: contain;
+    -fx-background-repeat: stretch;
+    -fx-background-position:0 -40;
+
 }
 
 .label{

@@ -1,5 +1,5 @@
 package Dao;
 
 public interface LoginDAO {
-    public String logIn(String usernameOrEmail,String password);
+    String logIn(String usernameOrEmail, String password);
 }

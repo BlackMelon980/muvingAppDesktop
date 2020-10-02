@@ -4,5 +4,5 @@ import Models.User;
 
 public interface UserDAO {
 
-    public User getByUsernameOrEmail(String usernameOrEmail);
+    User getByUsernameOrEmail(String usernameOrEmail);
 }

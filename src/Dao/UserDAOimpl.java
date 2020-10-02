@@ -2,7 +2,6 @@ package Dao;
 
 import Models.User;
 import com.google.gson.Gson;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -11,12 +10,11 @@ import java.net.http.HttpResponse;
 
 public class UserDAOimpl implements UserDAO{
 
-    private static final String getByUsernameOrEmail = "http://localhost:5000/users/usernameOrEmail/";
+    private static final String getByUsernameOrEmail = "http://localhost:8080/users/usernameOrEmail/";
 
     @Override
     public User getByUsernameOrEmail(String usernameOrEmail) {
-        User user = new User();
-
+        User user;
         String ENDPOINT_URL = getByUsernameOrEmail  + "username=" + usernameOrEmail + "&email=" + usernameOrEmail;
 
         HttpClient client = HttpClient.newHttpClient(); // SHUTDOWN?

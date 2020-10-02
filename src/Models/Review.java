@@ -14,6 +14,8 @@ public class Review {
     private StringProperty recensione;
     private StringProperty data;
 
+    public Review(){}
+
     public Review(String luogo, String struttura, String autore, String titolo,String recensione, String data){
         this.luogo = new SimpleStringProperty(luogo);
         this.struttura = new SimpleStringProperty(struttura);

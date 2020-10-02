@@ -9,4 +9,6 @@ public class DAOFactory {
     public static LoginDAO getLoginDAO(){
         return new LoginDAOimpl();
     }
+
+    public static ReviewDAO getReviewDAO(){return new ReviewDAOimpl();}
 }

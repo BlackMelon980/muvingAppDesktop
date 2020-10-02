@@ -1,6 +1,9 @@
 package Controllers;
 
+import Dao.DAOFactory;
+import Dao.ReviewDAO;
 import Models.Review;
+import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,7 +17,8 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-
+import com.google.gson.JsonArray;
+//import javax.json.JsonArray;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,15 +34,19 @@ public class ReviewsPageController implements Initializable {
     @FXML public Button showButton;
 
     private LoginController mainPage;
-
+    JsonArray reviews;
+    private ObservableList<Review> reviewList = FXCollections.observableArrayList();
     public Review selectedReview = null;
     //selezione riga
     TableView.TableViewSelectionModel<Review> selectionModel = null;
 
     public void setMainPage(LoginController mainPage) {
         this.mainPage = mainPage;
-        //aggiungo la lista di recensioni alla tabella (la funzione prende appunto una ObservableList)
-        table.setItems(mainPage.getReviewList());
+    //prendo le reviews
+        ReviewDAO reviewDAO = DAOFactory.getReviewDAO();
+        reviews = reviewDAO.getReviewByState("AWAITING");
+        System.out.println(reviews);
+        //TODO: adesso da questo reviews si devono prendere i valori, magari convertendolo in stringa e separarla
 
     }
 
@@ -46,7 +54,6 @@ public class ReviewsPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //qui verrá inizializzata la tabella con tutte le recensioni
         showButton.setVisible(false);
-
         colonnaLuogo.setCellValueFactory(cellData -> cellData.getValue().luogoProperty());
         colonnaStruttura.setCellValueFactory(cellData -> cellData.getValue().strutturaProperty());
         colonnaAutore.setCellValueFactory(cellData -> cellData.getValue().autoreProperty());
