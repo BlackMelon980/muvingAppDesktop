@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ReviewDAO {
     Review updateReviewState(Long reviewId, Review review);
-    JsonArray getReviewByState(String stateName);
+    List<Object[]> getReviewByState(String stateName);
     JsonArray getReviewByStructure(String structureName);
     List<Object> getReviewByPlace(String placeName);
     List<Object> getReviewByStructureAndPlace(String structureName, String placeName);

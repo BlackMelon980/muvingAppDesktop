@@ -3,6 +3,8 @@ package Controllers;
 import Dao.DAOFactory;
 import Dao.ReviewDAO;
 import Models.Review;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -18,9 +20,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import com.google.gson.JsonArray;
-//import javax.json.JsonArray;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ReviewsPageController implements Initializable {
@@ -34,7 +38,6 @@ public class ReviewsPageController implements Initializable {
     @FXML public Button showButton;
 
     private LoginController mainPage;
-    JsonArray reviews;
     private ObservableList<Review> reviewList = FXCollections.observableArrayList();
     public Review selectedReview = null;
     //selezione riga
@@ -44,10 +47,16 @@ public class ReviewsPageController implements Initializable {
         this.mainPage = mainPage;
     //prendo le reviews
         ReviewDAO reviewDAO = DAOFactory.getReviewDAO();
-        reviews = reviewDAO.getReviewByState("AWAITING");
-        System.out.println(reviews);
-        //TODO: adesso da questo reviews si devono prendere i valori, magari convertendolo in stringa e separarla
+        List<Object[]>reviews = reviewDAO.getReviewByState("AWAITING");
 
+        if(reviews != null){
+            for(int i=0; i<reviews.size();i++) {
+                Object[] o = reviews.get(i);
+                reviewList.add(new Review(o[0].toString(),o[1].toString(), o[2].toString(),o[3].toString(),o[4].toString(),o[5].toString(),o[6].toString(), (Double) o[7]));
+                System.out.println(o[7]);
+            }
+        }
+        table.setItems(reviewList);
     }
 
     @Override
@@ -90,7 +99,6 @@ public class ReviewsPageController implements Initializable {
             Parent rootLayout = fxmlLoader.load();
             Scene scene = new Scene(rootLayout);
             stage.setScene(scene);
-            scene.getStylesheets().add("/Layout/layout.css");
             stage.setTitle("Recensione");
             ShowReviewController controller = fxmlLoader.getController();
             controller.setReview(selectedReview);
