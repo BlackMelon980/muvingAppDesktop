@@ -14,22 +14,22 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ReviewsPageController">
    <children>
-      <BorderPane layoutX="140.0" layoutY="274.0" prefHeight="650.0" prefWidth="900.0" stylesheets="../Layout/layout.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane layoutX="140.0" layoutY="274.0" prefHeight="650.0" prefWidth="900.0" stylesheets="/Layout/layout.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <VBox alignment="CENTER" maxHeight="-Infinity" prefHeight="550.0" prefWidth="910.0" spacing="18.0" BorderPane.alignment="CENTER">
                <children>
                   <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="897.0" spacing="22.0">
                      <children>
-                        <TextField prefHeight="30.0" prefWidth="220.0" promptText="Inserire luogo" styleClass="textfield-reviews">
+                        <TextField fx:id="struttura" prefHeight="30.0" prefWidth="220.0" promptText="Inserire luogo" styleClass="textfield-reviews">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></TextField>
-                        <TextField prefHeight="30.0" prefWidth="220.0" promptText="Inserire struttura" styleClass="textfield-reviews">
+                        <TextField fx:id="luogo" prefHeight="30.0" prefWidth="220.0" promptText="Inserire struttura" styleClass="textfield-reviews">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></TextField>
                         <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="193.0" prefWidth="301.0" />
-                        <Button id="find-button" mnemonicParsing="false" prefWidth="90.0" styleClass="button-type2" text="Cerca">
+                        <Button id="find-button" fx:id="searchButton" mnemonicParsing="false" onAction="#search" prefWidth="90.0" styleClass="button-type2" text="Cerca">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>

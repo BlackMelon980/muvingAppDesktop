@@ -2,7 +2,7 @@ package Models;
 
 public class User {
 
-    private Long userId;
+    private Integer userId;
     private String firstName;
     private String lastName;
     private String username;
@@ -13,11 +13,11 @@ public class User {
 
     public User(){}
 
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 

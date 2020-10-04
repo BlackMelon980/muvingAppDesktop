@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ShowReviewController">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="1000.0" stylesheets="/Layout/layout.css">
@@ -81,8 +80,8 @@
          <bottom>
             <HBox alignment="TOP_CENTER" prefHeight="50.0" prefWidth="200.0" spacing="41.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="button-type2" text="Rifiuta" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="red-button" text="Accetta" />
+                  <Button id="refuse-button" fx:id="refuseButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" onMouseClicked="#rifiutaRecensione" styleClass="button-type2" text="Rifiuta" />
+                  <Button id="accept-button" fx:id="acceptButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#accettaRecensione"  prefHeight="30.0" prefWidth="100.0" styleClass="red-button" text="Accetta" />
                </children>
                <BorderPane.margin>
                   <Insets bottom="16.0" />

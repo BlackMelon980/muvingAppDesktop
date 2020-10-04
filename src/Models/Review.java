@@ -6,7 +6,7 @@ import javafx.beans.property.StringProperty;
 public class Review {
     /*le Property permettono di avere una notifica automatica quando una variabile viene modificata.
     Questo permette di tenere sincronizzato ció che é visualizzato con i dati */
-    private Double reviewId;
+    private String reviewId;
     private StringProperty luogo;
     private StringProperty struttura;
     private StringProperty autore;
@@ -17,7 +17,7 @@ public class Review {
 
     public Review(){}
 
-    public Review(String luogo, String struttura, String autore, String titolo,String recensione,String voto ,String data, Double reviewId){
+    public Review(String luogo, String struttura, String autore, String titolo, String recensione, String voto , String data, String reviewId){
         this.luogo = new SimpleStringProperty(luogo);
         this.struttura = new SimpleStringProperty(struttura);
         this.autore = new SimpleStringProperty(autore);
@@ -84,7 +84,7 @@ public class Review {
         return recensione;
     }
 
-    public Double getReviewId() {
+    public String getReviewId() {
         return reviewId;
     }
 }
