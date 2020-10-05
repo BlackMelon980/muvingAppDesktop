@@ -14,19 +14,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controllers.LoginController">
+<AnchorPane id="login-background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" stylesheets="/Layout/layout.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginController">
    <children>
-      <BorderPane layoutX="140.0" layoutY="274.0" prefHeight="650.0" prefWidth="900.0" stylesheets="/Layout/layout.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane layoutX="140.0" layoutY="274.0" prefHeight="650.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="2.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER" prefHeight="104.0" prefWidth="200.0" spacing="7.0">
+                  <HBox alignment="BOTTOM_CENTER" prefHeight="104.0" prefWidth="200.0" spacing="7.0">
                      <children>
                         <ImageView id="image-logo" fitHeight="78.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" style="-fx-background: transparent;">
                            <image>
-                              <Image url="/Layout/imageLogo2.png" />
-                           </image>
-                        </ImageView>
+                              <Image url="@../Layout/imageLogo2.png" />
+                           </image></ImageView>
                         <Label id="app-name" maxHeight="-Infinity" maxWidth="-Infinity" text="Muving">
                            <font>
                               <Font size="16.0" />
@@ -34,7 +33,7 @@
                         </Label>
                      </children>
                      <VBox.margin>
-                        <Insets top="-45.0" />
+                        <Insets top="-37.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="270.0">

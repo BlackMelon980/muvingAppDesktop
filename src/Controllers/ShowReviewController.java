@@ -3,10 +3,12 @@ package Controllers;
 import Dao.DAOFactory;
 import Dao.ReviewDAO;
 import Models.Review;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.net.http.HttpResponse;
@@ -21,6 +23,8 @@ public class ShowReviewController {
     @FXML public Label nomeAutore;
     @FXML public Button refuseButton;
     @FXML public Button acceptButton;
+    @FXML public Label votoRecensione;
+
     private String reviewId;
 
     private ReviewDAO reviewDAO;
@@ -30,10 +34,20 @@ public class ShowReviewController {
     }
 
     private Review review;
+    private Stage stage;
+    private ReviewsPageController mainPage;
 
     public void setReview(Review review) {
         this.review = review;
         addValues();
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+    public void setMainPage(ReviewsPageController mainPage) {
+        this.mainPage = mainPage;
     }
 
     public void addValues(){
@@ -45,31 +59,26 @@ public class ShowReviewController {
         commento.setText(review.getRecensione());
     }
 
-    public void accettaRecensione(){
+    @FXML public void acceptOrRefuseReview(ActionEvent actionEvent) {
+        String value = ((Button)actionEvent.getSource()).getText();
+        String choice;
+        if(value.equals("Accetta")){
+            choice = "\"ACCEPTED\"";
+        }else{
+            choice = "\"REFUSED\"";
+        }
 
         String body = new StringBuilder()
                 .append("{")
                 .append("\"state\":")
                 .append("{")
                 .append("\"name\":")
-                .append("\"ACCEPTED\"")
+                .append(choice)
                 .append("}")
                 .append("}").toString();
 
         HttpResponse<String> response = reviewDAO.updateReviewState(Long.parseLong(review.getReviewId()),body);
-
-    }
-
-    public void rifiutaRecensione(){
-        String body = new StringBuilder()
-                .append("{")
-                .append("\"state\":")
-                .append("{")
-                .append("\"name\":")
-                .append("\"REFUSED\"")
-                .append("}")
-                .append("}").toString();
-        HttpResponse<String> response = reviewDAO.updateReviewState(Long.parseLong(review.getReviewId()),body);
-        System.out.println(review.getReviewId());
+        mainPage.setAcceptedOrRefused(true);
+        stage.close();
     }
 }

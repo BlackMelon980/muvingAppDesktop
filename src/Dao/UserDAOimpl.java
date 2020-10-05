@@ -10,7 +10,7 @@ import java.net.http.HttpResponse;
 
 public class UserDAOimpl implements UserDAO{
 
-    private static final String getByUsernameOrEmail = "http://localhost:5000/users/usernameOrEmail/";
+    private static final String getByUsernameOrEmail = "http://localhost:8080/users/usernameOrEmail/";
 
     @Override
     public User getByUsernameOrEmail(String usernameOrEmail) {

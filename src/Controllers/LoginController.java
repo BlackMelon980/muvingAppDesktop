@@ -1,13 +1,12 @@
 package Controllers;
 
-import Models.Review;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -55,10 +54,6 @@ public class LoginController extends Component {
                     Scene scene = new Scene(rootLayout);
                     scene.getStylesheets().add("/Layout/layout.css");
                     mainStage.setScene(scene);
-
-                    ReviewsPageController reviewsPageController = fxmlLoader.getController();
-                    reviewsPageController.setMainPage(this);
-
                     mainStage.setTitle("Applicazione");
 
                 }catch (IOException e){
@@ -66,10 +61,10 @@ public class LoginController extends Component {
                 }
                 mainStage.show();
             }else if (result == 0){
-                JOptionPane.showMessageDialog(this,"L'utente non possiede i permessi per accedere!","Accesso negato",JOptionPane.ERROR_MESSAGE);
+                showAlert("Accesso negato","L'utente non possiede i permessi per accedere!");
                 isLogged = false;
             }else{
-                JOptionPane.showMessageDialog(this,"Le credenziali inserite sono errate. Riprovare","Accesso negato",JOptionPane.ERROR_MESSAGE);
+                showAlert("Accesso negato","Le credenziali inserite sono errate. Riprovare");
                 isLogged = false;
             }
         }
@@ -78,5 +73,18 @@ public class LoginController extends Component {
 
     public void setMainStage(Stage mainStage) {
         this.mainStage = mainStage;
+    }
+
+    void showAlert(String title, String message){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("../Layout/layout.css").toExternalForm());
+        dialogPane.getStyleClass().add("myDialog");
+        Stage stage = (Stage)alert.getDialogPane().getScene().getWindow();
+        stage.setResizable(false);
+        alert.showAndWait();
     }
 }

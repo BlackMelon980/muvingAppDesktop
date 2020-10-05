@@ -22,13 +22,12 @@ import org.apache.http.HttpHeaders;
 
 public class ReviewDAOimpl implements ReviewDAO{
 
-    public static final String startURL = "http://localhost:5000/reviews";
+    public static final String startURL = "http://localhost:8080/reviews";
 
     @Override
     public HttpResponse<String> updateReviewState(Long reviewId, String state) {
 
         String endPoint = startURL+"/update?review_id=" + reviewId;
-        System.out.println(endPoint);
         final HttpClient httpClient = HttpClient.newBuilder().version(HttpClient.Version.HTTP_2).build();
 
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(endPoint))
@@ -70,6 +69,7 @@ public class ReviewDAOimpl implements ReviewDAO{
     public  List<Object[]> getReviewByStructure(String structureName) {
         String getURL = startURL + "/getReviewByStructure?name=" + structureName;
 
+        getURL = getURL.replace(" ", "%20");
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest requestReview = HttpRequest.newBuilder().GET().uri(URI.create(getURL)).build();
@@ -89,7 +89,7 @@ public class ReviewDAOimpl implements ReviewDAO{
     public  List<Object[]> getReviewByPlace(String placeName) {
 
         String getURL = startURL + "/getReviewByPlace?name=" + placeName;
-
+        getURL = getURL.replace(" ", "%20");
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest requestReview = HttpRequest.newBuilder().GET().uri(URI.create(getURL)).build();
@@ -110,6 +110,7 @@ public class ReviewDAOimpl implements ReviewDAO{
 
         String getURL = startURL + "/getReviewByStructureAndPlace?place_name=" + placeName + "&structure_name=" + structureName;
 
+        getURL = getURL.replace(" ", "%20");
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest requestReview = HttpRequest.newBuilder().GET().uri(URI.create(getURL)).build();

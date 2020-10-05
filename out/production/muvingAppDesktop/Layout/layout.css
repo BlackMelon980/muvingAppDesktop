@@ -1,10 +1,12 @@
 .root{
     -fx-background-color:  #212226;
+}
+
+#login-background{
     -fx-background-image: url("draw.png");
     -fx-background-size: contain;
     -fx-background-repeat: stretch;
     -fx-background-position:0 -40;
-
 }
 
 .label{
@@ -34,9 +36,9 @@
 }
 
 #app-name{
-    -fx-font-family: "chiller";
-    -fx-font-size: 100px;
-    -fx-font-weight: 700;
+    -fx-font-family: "Montserrat";
+    -fx-font-size: 50px;
+    -fx-font-weight: 300;
     -fx-text-fill: #f14666;
 }
 
@@ -173,3 +175,23 @@ finestra recensione
     -fx-background-radius: 10;
     -fx-border-radius: 10;
 }
+
+.myDialog{
+    -fx-background-color: #212226;
+}
+
+.myDialog > *.label.content{
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Montserrat";
+}
+.myDialog > *.button-bar.button{
+    -fx-background-color: #212226;
+    -fx-border-color: #FFCDAA;
+    -fx-border-radius: 15;
+    -fx-font-family: "Montserrat";
+    -fx-font-size: 13px;
+    -fx-font-weight: 300;
+    -fx-text-fill: #FFCDAA;
+}
+

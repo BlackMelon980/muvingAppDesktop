@@ -38,30 +38,89 @@ public class ReviewsPageController implements Initializable {
     @FXML public Button showButton;
     @FXML public Button searchButton;
 
-    private LoginController mainPage;
     private ObservableList<Review> reviewList = FXCollections.observableArrayList();
     public Review selectedReview = null;
-    //selezione riga
-    TableView.TableViewSelectionModel<Review> selectionModel = null;
+    private Boolean acceptedOrRefused = false;
 
-    public void setMainPage(LoginController mainPage) {
-        this.mainPage = mainPage;
+
+    public void setAcceptedOrRefused(Boolean acceptedOrRefused) {
+        this.acceptedOrRefused = acceptedOrRefused;
+    }
+
+    //funzione richiamata per inizializzare la tabella
+    public void setTable() {
     //prendo le reviews
         ReviewDAO reviewDAO = DAOFactory.getReviewDAO();
         List<Object[]>reviews = reviewDAO.getReviewByState("AWAITING");
+        fillTable(reviews);
+        table.setItems(reviewList);
+    }
 
+
+
+    @FXML public void showReview(ActionEvent actionEvent) {
+        openReview();
+    }
+
+    @FXML public void search(){
+        ReviewDAO reviewDAO = DAOFactory.getReviewDAO();
+        List<Object[]> reviews = null;
+        if (struttura.getText().isEmpty() && luogo.getText().isEmpty()){
+            struttura.setPromptText("Inserire nome struttura");
+            luogo.setPromptText("Inserire nome luogo");
+        }else if (!struttura.getText().isEmpty() && luogo.getText().isEmpty()){
+
+            reviews = reviewDAO.getReviewByStructure(struttura.getText());
+
+        }else if(struttura.getText().isEmpty() && !luogo.getText().isEmpty()){
+
+            reviews = reviewDAO.getReviewByPlace(luogo.getText());
+
+        }else{
+            reviews = reviewDAO.getReviewByStructureAndPlace(struttura.getText(),luogo.getText());
+        }
+        fillTable(reviews);
+        table.setItems(reviewList);
+    }
+
+    private void fillTable(List<Object[]> reviews) {
         if(reviews != null){
-            //reviewList.removeAll(reviewList);
-            for(int i=0; i<reviews.size();i++) {
-                Object[] o = reviews.get(i);
+            reviewList.removeAll(reviewList);
+            for (Object[] o : reviews) {
                 NumberFormat nf = NumberFormat.getNumberInstance();
                 nf.setMaximumFractionDigits(0);
                 String userId = nf.format(o[2]);
                 String reviewId = nf.format(o[7]);
-                reviewList.add(new Review(o[0].toString(),o[1].toString(),userId,o[3].toString(),o[4].toString(),o[5].toString(),o[6].toString(), reviewId));
+                reviewList.add(new Review(o[0].toString(), o[1].toString(), userId, o[3].toString(), o[4].toString(), o[5].toString(), o[6].toString(), reviewId));
             }
         }
-        table.setItems(reviewList);
+    }
+
+    //funzione che crea la finestra che mostra i dati della recensione scelta
+    public void openReview(){
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/showReview.fxml"));
+        try {
+            Parent rootLayout = fxmlLoader.load();
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.setTitle("Recensione");
+            ShowReviewController controller = fxmlLoader.getController();
+            if(selectedReview!= null){
+                controller.setReview(selectedReview);
+                controller.setStage(stage);
+                controller.setMainPage(this);
+            }
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+        stage.showAndWait();
+        //controllo se ho chiuso la finestra premendo uno dei due bottoni
+        System.out.println(acceptedOrRefused);
+        if(acceptedOrRefused){
+            table.getItems().remove(selectedReview);
+            table.refresh();
+        }
     }
 
     @Override
@@ -74,6 +133,7 @@ public class ReviewsPageController implements Initializable {
         colonnaRecensione.setCellValueFactory(cellData -> cellData.getValue().recensioneProperty());
         colonnaData.setCellValueFactory(cellData -> cellData.getValue().dataProperty());
 
+        setTable();
         //selezione riga
         TableView.TableViewSelectionModel<Review> selectionModel = table.getSelectionModel();
         if(selectionModel != null){
@@ -85,80 +145,12 @@ public class ReviewsPageController implements Initializable {
                 @Override
                 public void onChanged(Change<? extends Review> change) {
                     showButton.setVisible(true);
-                    selectedReview = selectedItems.get(0);
+                    if(selectedItems.size()>=1){
+                        selectedReview = selectedItems.get(0);
+                    }
                 }
             });
         }
 
-    }
-
-    @FXML public void showReview(ActionEvent actionEvent) {
-        openReview();
-    }
-
-    @FXML public void search(){
-        ReviewDAO reviewDAO = DAOFactory.getReviewDAO();
-        if (struttura.getText().isEmpty() && luogo.getText().isEmpty()){
-            struttura.setPromptText("Inserire nome struttura");
-            luogo.setPromptText("Inserire nome luogo");
-        }else if (!struttura.getText().isEmpty() && luogo.getText().isEmpty()){
-            List<Object[]> reviews = reviewDAO.getReviewByStructure(struttura.getText());
-            if(reviews != null){
-                reviewList.removeAll(reviewList);
-                for(int i=0; i<reviews.size();i++) {
-                    Object[] o = reviews.get(i);
-                    NumberFormat nf = NumberFormat.getNumberInstance();
-                    nf.setMaximumFractionDigits(0);
-                    String userId = nf.format(o[2]);
-                    String reviewId = nf.format(o[7]);
-                    reviewList.add(new Review(o[0].toString(),o[1].toString(),userId,o[3].toString(),o[4].toString(),o[5].toString(),o[6].toString(), reviewId));
-                }
-            }
-
-        }else if(struttura.getText().isEmpty() && !luogo.getText().isEmpty()){
-            List<Object[]> reviews = reviewDAO.getReviewByPlace(luogo.getText());
-            if(reviews != null){
-                reviewList.removeAll(reviewList);
-                for(int i=0; i<reviews.size();i++) {
-                    Object[] o = reviews.get(i);
-                    NumberFormat nf = NumberFormat.getNumberInstance();
-                    nf.setMaximumFractionDigits(0);
-                    String userId = nf.format(o[2]);
-                    String reviewId = nf.format(o[7]);
-                    reviewList.add(new Review(o[0].toString(),o[1].toString(),userId,o[3].toString(),o[4].toString(),o[5].toString(),o[6].toString(), reviewId));
-                }
-            }
-        }else{
-            List<Object[]> reviews = reviewDAO.getReviewByStructureAndPlace(struttura.getText(),luogo.getText());
-            if(reviews != null){
-                reviewList.removeAll(reviewList);
-                for(int i=0; i<reviews.size();i++) {
-                    Object[] o = reviews.get(i);
-                    NumberFormat nf = NumberFormat.getNumberInstance();
-                    nf.setMaximumFractionDigits(0);
-                    String userId = nf.format(o[2]);
-                    String reviewId = nf.format(o[7]);
-                    reviewList.add(new Review(o[0].toString(),o[1].toString(),userId,o[3].toString(),o[4].toString(),o[5].toString(),o[6].toString(), reviewId));
-                }
-            }
-        }
-        table.setItems(reviewList);
-    }
-
-    //funzione che crea la finestra che mostra i dati della recensione scelta
-    public void openReview(){
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/showReview.fxml"));
-        try {
-            Parent rootLayout = fxmlLoader.load();
-            Scene scene = new Scene(rootLayout);
-            stage.setScene(scene);
-            stage.setTitle("Recensione");
-            ShowReviewController controller = fxmlLoader.getController();
-            controller.setReview(selectedReview);
-        }catch (IOException e){
-            throw new RuntimeException(e);
-        }
-        stage.showAndWait();
     }
 }
