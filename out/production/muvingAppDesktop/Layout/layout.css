@@ -12,7 +12,7 @@
 .label{
     -fx-font-family: "Montserrat";
     -fx-font-size: 15px;
-    -fx-font-weight: 100;
+    -fx-font-weight: 300;
     -fx-text-fill: #e6e6e6;
 }
 
@@ -31,7 +31,7 @@
     -fx-border-radius: 15;
     -fx-font-family: "Montserrat";
     -fx-font-size: 13px;
-    -fx-text-fill: #e6e6e6;
+    -fx-text-fill: #FFCDAA;
     -fx-prompt-text-fill: #b33950;
 }
 
@@ -167,24 +167,60 @@ table layout
     -fx-prompt-text-fill: #c4a791;
 }
 
+/* finestra recensione */
+
+#review-message > .viewport{
+    -fx-background-color: transparent;
+}
+
+#review-message{
+    -fx-background-color: #2C2D30;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
 /*
-finestra recensione
- */
 #review-box{
     -fx-background-color: #2C2D30;
     -fx-background-radius: 10;
     -fx-border-radius: 10;
 }
 
-/*
-finestra di dialog
  */
+
+.pane-description{
+    -fx-border-color: #3F3F3F;
+    -fx-border-width: 0 0 2 2;
+    -fx-border-radius: 0 0 0 5;
+}
+
+.pane-info{
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-background-color: #3F3F3F;
+}
+
+.review-description-label{
+    -fx-font-family: "Montserrat";
+    -fx-font-weight: 300;
+    -fx-text-fill: #EE8980;
+    -fx-font-size: 14px;
+}
+.review-info-label{
+    -fx-font-family: "Montserrat";
+    -fx-font-size: 14px;
+    -fx-font-weight: 300;
+}
+
+
+/* finestra di dialog */
+
 .myDialog{
+    -fx-font-family: "Montserrat";
     -fx-background-color: #212226;
 }
 
 .myDialog > *.label.content{
-    -fx-font-size: 14px;
+    -fx-font-size: 13px;
     -fx-font-weight: 600;
     -fx-font-family: "Montserrat";
 }
@@ -213,17 +249,5 @@ finestra di dialog
 
 }
 
-.showReviewWindow .label-description{
-    -fx-border-color: #FFCDAA;
-    -fx-border-width: 0 0 2 0;
-    -fx-text-fill: #EE8980;
-}
 
-
-.showReviewWindow .label-output{
-    -fx-border-color: #FFCDAA;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
-    -fx-background-color: #3F3F3F;
-}
 

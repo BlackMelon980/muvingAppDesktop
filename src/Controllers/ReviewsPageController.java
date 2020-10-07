@@ -4,6 +4,7 @@ import DAO.DAOFactory;
 import DAO.ReviewDAO;
 import DAO.UserDAO;
 import Models.Review;
+import javafx.animation.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -14,7 +15,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.io.IOException;
 import java.net.URL;
 import java.text.NumberFormat;
@@ -35,15 +40,15 @@ public class ReviewsPageController implements Initializable {
     @FXML public Button searchButton;
     @FXML public Button logoutButton;
 
+    @FXML public StackPane parentContainer;
+    @FXML AnchorPane container;
+
 
     private ObservableList<Review> reviewList = FXCollections.observableArrayList();
     public Review selectedReview = null;
     private Boolean acceptedOrRefused = false;
 
 
-    public void setAcceptedOrRefused(Boolean acceptedOrRefused) {
-        this.acceptedOrRefused = acceptedOrRefused;
-    }
 
     //funzione richiamata per inizializzare la tabella
     public void setTable() {
@@ -122,6 +127,7 @@ public class ReviewsPageController implements Initializable {
         }
         stage.showAndWait();
         //controllo se ho chiuso la finestra premendo uno dei due bottoni
+        System.out.println(acceptedOrRefused);
         if(acceptedOrRefused){
             table.getItems().remove(selectedReview);
             table.refresh();
@@ -163,18 +169,40 @@ public class ReviewsPageController implements Initializable {
         UserDAO userDAO = DAOFactory.getUserDAO();
         userDAO.logout();
 
-        //TODO: Aggiustare il cambio scena qui
-        Stage stage = new Stage();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/login.fxml"));
         try {
+
             Parent rootLayout = fxmlLoader.load();
-            Scene scene = new Scene(rootLayout);
-            stage.setScene(scene);
-            stage.setTitle("Login");
-            LoginController controller = fxmlLoader.getController();
+            Scene scene = showButton.getScene();
+            rootLayout.translateXProperty().set(-1 * scene.getWidth());
+            parentContainer.getChildren().add(rootLayout);
+
+            Timeline timeline = new Timeline();
+            KeyValue kv = new KeyValue(rootLayout.translateXProperty(), 0 , Interpolator.EASE_IN);
+            KeyFrame kf = new KeyFrame(Duration.seconds(0.5), kv);
+            timeline.getKeyFrames().add(kf);
+
+            FadeTransition ft = new FadeTransition(Duration.seconds(0.4),container);
+            ft.setFromValue(1.0);
+            ft.setToValue(0.0);
+
+            timeline.setDelay(Duration.seconds(0.4));
+            timeline.setOnFinished(event ->{
+                parentContainer.getChildren().remove(container);
+            });
+
+            ft.play();
+            timeline.play();
+
         }catch (IOException e){
             throw new RuntimeException(e);
         }
     }
+
+
+    public void setAcceptedOrRefused(Boolean acceptedOrRefused) {
+        this.acceptedOrRefused = acceptedOrRefused;
+    }
+
 }

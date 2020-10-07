@@ -64,6 +64,7 @@ public class ShowReviewController {
 
     @FXML public void acceptOrRefuseReview(ActionEvent actionEvent) {
         String value = ((Button)actionEvent.getSource()).getText();
+        System.out.println(((Button)actionEvent.getSource()).getText());
         String choice;
         if(value.equals("Accetta")){
             choice = "\"ACCEPTED\"";

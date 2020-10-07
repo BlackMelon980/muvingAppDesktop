@@ -58,11 +58,18 @@ public class LoginController extends Component {
 
                     Timeline timeline = new Timeline();
                     KeyValue kv = new KeyValue(rootLayout.translateXProperty(), 0 , Interpolator.EASE_IN);
-                    KeyFrame kf = new KeyFrame(Duration.seconds(0.7), kv);
+                    KeyFrame kf = new KeyFrame(Duration.seconds(0.5), kv);
                     timeline.getKeyFrames().add(kf);
+
+                    FadeTransition ft = new FadeTransition(Duration.seconds(0.4),container);
+                    ft.setFromValue(1.0);
+                    ft.setToValue(0.0);
+
+                    timeline.setDelay(Duration.seconds(0.4));
                     timeline.setOnFinished(event ->{
                         parentContainer.getChildren().remove(container);
                     });
+                    ft.play();
                     timeline.play();
                 }catch (IOException e){
                     throw new RuntimeException(e);

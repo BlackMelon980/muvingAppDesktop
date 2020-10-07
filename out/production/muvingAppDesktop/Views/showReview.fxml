@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -13,122 +14,120 @@
    <children>
       <BorderPane prefHeight="600.0" prefWidth="1000.0">
          <center>
-            <VBox id="review-box" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="790.0" BorderPane.alignment="CENTER">
+            <VBox id="review-box" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="790.0" styleClass="showReviewWindow" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets top="16.0" />
                </BorderPane.margin>
                <padding>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="21.0" />
                </padding>
                <children>
                   <HBox alignment="CENTER" prefHeight="43.0" prefWidth="760.0">
                      <children>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" style="-fx-border-color: black;" styleClass="label-description">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" styleClass="pane-description">
                            <children>
-                              <Label layoutX="12.0" layoutY="6.0" text="Luogo" />
+                              <Label layoutX="12.0" layoutY="6.0" styleClass="review-description-label" text="Luogo" />
                            </children>
                         </Pane>
                         <Pane layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="57.0" />
-                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="label-output">
+                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="pane-info">
                            <children>
-                              <Label fx:id="nomeLuogo" layoutX="12.0" layoutY="6.0" text="Luogo" />
+                              <Label fx:id="nomeLuogo" layoutX="12.0" layoutY="6.0" styleClass="review-info-label" text="Luogo" />
                            </children>
                         </Pane>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="25.0" layoutY="25.0" prefHeight="43.0" prefWidth="760.0">
                      <children>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" style="-fx-border-color: black;" styleClass="label-description">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" styleClass="pane-description">
                            <children>
-                              <Label layoutX="12.0" layoutY="6.0" text="Struttura" />
+                              <Label layoutX="12.0" layoutY="6.0" styleClass="review-description-label" text="Struttura" />
                            </children>
                         </Pane>
                         <Pane layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="57.0" />
-                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="label-output">
+                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="pane-info">
                            <children>
-                              <Label fx:id="nomeStruttura" layoutX="12.0" layoutY="6.0" text="Nome struttura" />
+                              <Label fx:id="nomeStruttura" layoutX="12.0" layoutY="6.0" styleClass="review-info-label" text="Nome struttura" />
                            </children>
                         </Pane>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="25.0" layoutY="77.0" prefHeight="43.0" prefWidth="760.0">
                      <children>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" style="-fx-border-color: black;" styleClass="label-description">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" styleClass="pane-description">
                            <children>
-                              <Label layoutX="12.0" layoutY="6.0" text="Autore" />
+                              <Label layoutX="12.0" layoutY="6.0" styleClass="review-description-label" text="Autore" />
                            </children>
                         </Pane>
                         <Pane layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="57.0" />
-                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="label-output">
+                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="pane-info">
                            <children>
-                              <Label fx:id="nomeAutore" layoutX="12.0" layoutY="6.0" text="Nome autore" />
+                              <Label fx:id="nomeAutore" layoutX="12.0" layoutY="6.0" styleClass="review-info-label" text="Nome autore" />
                            </children>
                         </Pane>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="25.0" layoutY="129.0" prefHeight="43.0" prefWidth="760.0">
                      <children>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" style="-fx-border-color: black;" styleClass="label-description">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" styleClass="pane-description">
                            <children>
-                              <Label layoutX="12.0" layoutY="6.0" text="Data" />
+                              <Label layoutX="12.0" layoutY="6.0" styleClass="review-description-label" text="Data" />
                            </children>
                         </Pane>
                         <Pane layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="57.0" />
-                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="label-output">
+                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="pane-info">
                            <children>
-                              <Label fx:id="dataRecensione" layoutX="12.0" layoutY="6.0" text="Data" />
+                              <Label fx:id="dataRecensione" layoutX="12.0" layoutY="6.0" styleClass="review-info-label" text="Data" />
                            </children>
                         </Pane>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="25.0" layoutY="181.0" prefHeight="43.0" prefWidth="760.0">
                      <children>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" style="-fx-border-color: black;" styleClass="label-description">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" styleClass="pane-description">
                            <children>
-                              <Label layoutX="12.0" layoutY="6.0" text="Titolo" />
+                              <Label layoutX="12.0" layoutY="6.0" styleClass="review-description-label" text="Titolo" />
                            </children>
                         </Pane>
                         <Pane layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="57.0" />
-                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="label-output">
+                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="pane-info">
                            <children>
-                              <Label fx:id="titoloRecensione" layoutX="12.0" layoutY="6.0" text="Titolo" />
+                              <Label fx:id="titoloRecensione" layoutX="12.0" layoutY="6.0" styleClass="review-info-label" text="Titolo" />
                            </children>
                         </Pane>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="25.0" layoutY="233.0" prefHeight="43.0" prefWidth="760.0">
                      <children>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" style="-fx-border-color: black;" styleClass="label-description">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" styleClass="pane-description">
                            <children>
-                              <Label layoutX="12.0" layoutY="6.0" text="Voto" />
+                              <Label layoutX="12.0" layoutY="6.0" styleClass="review-description-label" text="Voto" />
                            </children>
                         </Pane>
                         <Pane layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="57.0" />
-                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="label-output">
+                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="pane-info">
                            <children>
-                              <Label fx:id="votoRecensione" layoutX="12.0" layoutY="6.0" text="Voto" />
+                              <Label fx:id="votoRecensione" layoutX="12.0" layoutY="6.0" styleClass="review-info-label" text="Voto" />
                            </children>
                         </Pane>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="25.0" layoutY="285.0" prefHeight="43.0" prefWidth="760.0">
                      <children>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" style="-fx-border-color: black;" styleClass="label-description">
-                           <children>
-                              <Label layoutX="12.0" layoutY="6.0" text="Commento" />
-                           </children>
-                        </Pane>
                         <Pane layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="57.0" />
                         <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="25.0" layoutY="337.0" prefHeight="117.0" prefWidth="760.0">
                      <children>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="99.0" prefWidth="553.0" style="-fx-border-color: black;" styleClass="label-output">
-                           <children>
-                              <Label fx:id="commento" alignment="TOP_LEFT" layoutX="12.0" layoutY="10.0" prefHeight="78.0" prefWidth="529.0" text="commento" />
-                           </children>
-                        </Pane>
+                        <ScrollPane id="review-message" fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="99.0" prefWidth="553.0">
+                           <content>
+                              <Label fx:id="commento" alignment="TOP_LEFT" styleClass="review-info-label" text="commento" wrapText="true" />
+                           </content>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </ScrollPane>
                      </children>
                   </HBox>
                </children>
