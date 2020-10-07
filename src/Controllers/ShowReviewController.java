@@ -1,19 +1,18 @@
 package Controllers;
 
-import Dao.DAOFactory;
-import Dao.ReviewDAO;
+import Auth.Token;
+import DAO.ReviewDAO;
+import DAO.DAOFactory;
 import Models.Review;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.net.URL;
 import java.net.http.HttpResponse;
-import java.util.ResourceBundle;
+
 
 public class ShowReviewController {
     @FXML public Label nomeLuogo;
@@ -30,6 +29,8 @@ public class ShowReviewController {
     private String reviewId;
 
     private ReviewDAO reviewDAO;
+
+    private Token token;
 
     public ShowReviewController(){
         reviewDAO = DAOFactory.getReviewDAO();

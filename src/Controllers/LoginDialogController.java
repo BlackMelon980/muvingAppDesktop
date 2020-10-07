@@ -1,6 +1,6 @@
 package Controllers;
 
-import Dao.*;
+import DAO.*;
 import Models.User;
 import Singleton.UserSingleton;
 

@@ -1,10 +1,9 @@
 package Controllers;
 
-import Dao.DAOFactory;
-import Dao.ReviewDAO;
+import DAO.DAOFactory;
+import DAO.ReviewDAO;
+import DAO.UserDAO;
 import Models.Review;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -16,12 +15,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import com.google.gson.JsonArray;
 import java.io.IOException;
 import java.net.URL;
 import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -37,6 +33,8 @@ public class ReviewsPageController implements Initializable {
     @FXML public TextField luogo;
     @FXML public Button showButton;
     @FXML public Button searchButton;
+    @FXML public Button logoutButton;
+
 
     private ObservableList<Review> reviewList = FXCollections.observableArrayList();
     public Review selectedReview = null;
@@ -124,7 +122,6 @@ public class ReviewsPageController implements Initializable {
         }
         stage.showAndWait();
         //controllo se ho chiuso la finestra premendo uno dei due bottoni
-        System.out.println(acceptedOrRefused);
         if(acceptedOrRefused){
             table.getItems().remove(selectedReview);
             table.refresh();
@@ -160,5 +157,24 @@ public class ReviewsPageController implements Initializable {
             });
         }
 
+    }
+    @FXML
+    public void logout(ActionEvent actionEvent) {
+        UserDAO userDAO = DAOFactory.getUserDAO();
+        userDAO.logout();
+
+        //TODO: Aggiustare il cambio scena qui
+        Stage stage = new Stage();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/login.fxml"));
+        try {
+            Parent rootLayout = fxmlLoader.load();
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.setTitle("Login");
+            LoginController controller = fxmlLoader.getController();
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -215,7 +215,7 @@ finestra di dialog
 
 .showReviewWindow .label-description{
     -fx-border-color: #FFCDAA;
-    -fx-border-width: 0 2 2 0;
+    -fx-border-width: 0 0 2 0;
     -fx-text-fill: #EE8980;
 }
 

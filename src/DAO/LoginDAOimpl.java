@@ -1,4 +1,4 @@
-package Dao;
+package DAO;
 
 import java.io.IOException;
 import java.net.URI;
@@ -6,12 +6,14 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+import Auth.Token;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 public class LoginDAOimpl implements LoginDAO {
 
-    private static final String signIn = "http://localhost:8080/api/auth/signin";
+    private static final String signIn = "http://localhost:5000/api/auth/signin";
+    private Token token = new Token();
 
     @Override
     public String logIn(String usernameOrEmail, String password) {
@@ -40,7 +42,8 @@ public class LoginDAOimpl implements LoginDAO {
             if (response.statusCode()==200){
                 Gson gson = new Gson();
                 JsonObject object = gson.fromJson(response.body(),JsonObject.class);
-                return object.get("accessToken").getAsString();
+                token.setToken(object.get("accessToken").getAsString());
+                return token.getToken();
             }else {
                 return null;
             }

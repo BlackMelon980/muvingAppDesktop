@@ -71,7 +71,7 @@
             </HBox>
          </bottom>
          <top>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" styleClass="red-button" text="Esci" BorderPane.alignment="CENTER_RIGHT">
+            <Button fx:id="logoutButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" onAction="#logout" styleClass="red-button" text="Logout" BorderPane.alignment="CENTER_RIGHT">
                <BorderPane.margin>
                   <Insets right="39.0" top="13.0" />
                </BorderPane.margin>

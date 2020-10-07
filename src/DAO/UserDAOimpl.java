@@ -1,7 +1,9 @@
-package Dao;
+package DAO;
 
+import Auth.Token;
 import Models.User;
 import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -10,7 +12,9 @@ import java.net.http.HttpResponse;
 
 public class UserDAOimpl implements UserDAO{
 
-    private static final String getByUsernameOrEmail = "http://localhost:8080/users/usernameOrEmail/";
+    private static final String getByUsernameOrEmail = "http://localhost:5000/users/usernameOrEmail/";
+
+    Token token;
 
     @Override
     public User getByUsernameOrEmail(String usernameOrEmail) {
@@ -32,5 +36,10 @@ public class UserDAOimpl implements UserDAO{
         }
 
         return null;
+    }
+
+    @Override
+    public void logout() {
+        token = null;
     }
 }

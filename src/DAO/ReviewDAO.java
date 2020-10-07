@@ -1,9 +1,5 @@
-package Dao;
+package DAO;
 
-import Models.Review;
-//import javax.json.*;
-import javafx.collections.ObservableList;
-import com.google.gson.JsonArray;
 
 import java.net.http.HttpResponse;
 import java.util.List;
