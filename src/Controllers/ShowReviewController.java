@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -24,6 +25,7 @@ public class ShowReviewController {
     @FXML public Button refuseButton;
     @FXML public Button acceptButton;
     @FXML public Label votoRecensione;
+    @FXML public AnchorPane windowContainer;
 
     private String reviewId;
 

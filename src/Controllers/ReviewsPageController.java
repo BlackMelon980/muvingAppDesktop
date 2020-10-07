@@ -62,12 +62,18 @@ public class ReviewsPageController implements Initializable {
         openReview();
     }
 
+    //funzione richiamata alla pressione del bottone "Cerca"
     @FXML public void search(){
         ReviewDAO reviewDAO = DAOFactory.getReviewDAO();
         List<Object[]> reviews = null;
+
         if (struttura.getText().isEmpty() && luogo.getText().isEmpty()){
+
             struttura.setPromptText("Inserire nome struttura");
+            struttura.setStyle("-fx-prompt-text-fill: #b33950");
             luogo.setPromptText("Inserire nome luogo");
+            luogo.setStyle("-fx-prompt-text-fill: #b33950");
+
         }else if (!struttura.getText().isEmpty() && luogo.getText().isEmpty()){
 
             reviews = reviewDAO.getReviewByStructure(struttura.getText());
@@ -79,6 +85,7 @@ public class ReviewsPageController implements Initializable {
         }else{
             reviews = reviewDAO.getReviewByStructureAndPlace(struttura.getText(),luogo.getText());
         }
+
         fillTable(reviews);
         table.setItems(reviewList);
     }
@@ -99,6 +106,7 @@ public class ReviewsPageController implements Initializable {
     //funzione che crea la finestra che mostra i dati della recensione scelta
     public void openReview(){
         Stage stage = new Stage();
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/showReview.fxml"));
         try {
             Parent rootLayout = fxmlLoader.load();

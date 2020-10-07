@@ -20,11 +20,11 @@
                <children>
                   <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="897.0" spacing="22.0">
                      <children>
-                        <TextField fx:id="struttura" prefHeight="30.0" prefWidth="220.0" promptText="Inserire luogo" styleClass="textfield-reviews">
+                        <TextField fx:id="luogo" prefHeight="30.0" prefWidth="220.0" promptText="Inserire luogo" styleClass="textfield-reviews">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></TextField>
-                        <TextField fx:id="luogo" prefHeight="30.0" prefWidth="220.0" promptText="Inserire struttura" styleClass="textfield-reviews">
+                        <TextField fx:id="struttura" prefHeight="30.0" prefWidth="220.0" promptText="Inserire struttura" styleClass="textfield-reviews">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></TextField>

@@ -20,21 +20,15 @@ import java.io.IOException;
 
 public class LoginController extends Component {
 
+    @FXML public StackPane parentContainer;
+    @FXML public AnchorPane container;
     @FXML public Button loginButton;
     public TextField idAdmin;
     public TextField passwordAdmin;
-    public AnchorPane anchorPaneLogin;
-    public BorderPane borderPaneRoot;
     private Stage mainStage;
 
     LoginDialogController loginDialogController;
     boolean isLogged;
-
-
-    /*
-      le classi di visualizzazione hanno bisogno di essere informate su eventuali modifiche apportate
-      alla lista di recensioni. Per questo si usa una ObservableList.
-    */
 
     //funzione richiamata alla pressione del bottone
     @FXML public void login() {
@@ -54,20 +48,25 @@ public class LoginController extends Component {
             if (result == 1){
                 isLogged = true;
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/reviewsPage.fxml"));
+
                 try {
+                    //cambio scena con animazione
                     Parent rootLayout = fxmlLoader.load();
-                    Scene scene = new Scene(rootLayout);
-                    scene.getStylesheets().add("/Layout/layout.css");
-                    Scene rootScene = anchorPaneLogin.getScene();
-                    rootLayout.translateYProperty().set(rootScene.getHeight());
-                    mainStage.setScene(scene);
+                    Scene scene = loginButton.getScene();
+                    rootLayout.translateXProperty().set(scene.getWidth());
+                    parentContainer.getChildren().add(rootLayout);
 
-                    mainStage.setTitle("Applicazione");
-
+                    Timeline timeline = new Timeline();
+                    KeyValue kv = new KeyValue(rootLayout.translateXProperty(), 0 , Interpolator.EASE_IN);
+                    KeyFrame kf = new KeyFrame(Duration.seconds(0.7), kv);
+                    timeline.getKeyFrames().add(kf);
+                    timeline.setOnFinished(event ->{
+                        parentContainer.getChildren().remove(container);
+                    });
+                    timeline.play();
                 }catch (IOException e){
                     throw new RuntimeException(e);
                 }
-                mainStage.show();
             }else if (result == 0){
                 showAlert("Accesso negato","L'utente non possiede i permessi per accedere!");
                 isLogged = false;
@@ -88,6 +87,9 @@ public class LoginController extends Component {
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
+        alert.setX( (container.getWidth()/2) - 170);
+        alert.setY( (container.getHeight()/2) - 30 );
+
         DialogPane dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().add(getClass().getResource("../Layout/layout.css").toExternalForm());
         dialogPane.getStyleClass().add("myDialog");

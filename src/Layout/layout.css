@@ -213,4 +213,17 @@ finestra di dialog
 
 }
 
+.showReviewWindow .label-description{
+    -fx-border-color: #FFCDAA;
+    -fx-border-width: 0 0 2 0;
+    -fx-text-fill: #EE8980;
+}
+
+
+.showReviewWindow .label-output{
+    -fx-border-color: #FFCDAA;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-background-color: #3F3F3F;
+}
 
