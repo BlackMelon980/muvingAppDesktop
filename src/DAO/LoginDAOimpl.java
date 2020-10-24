@@ -12,7 +12,7 @@ import com.google.gson.JsonObject;
 
 public class LoginDAOimpl implements LoginDAO {
 
-    private static final String signIn = "http://localhost:8080/api/auth/signin";
+    private static final String signIn = "http://muving-env-2.eba-xepwi2ws.eu-west-2.elasticbeanstalk.com/api/auth/signin";
     private Token token = new Token();
 
     @Override
@@ -42,7 +42,7 @@ public class LoginDAOimpl implements LoginDAO {
             if (response.statusCode()==200){
                 Gson gson = new Gson();
                 JsonObject object = gson.fromJson(response.body(),JsonObject.class);
-                token.setToken(object.get("accessToken").getAsString());
+                token.setToken(object.get("token").getAsString());
                 return token.getToken();
             }else {
                 return null;

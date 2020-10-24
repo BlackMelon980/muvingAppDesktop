@@ -11,6 +11,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 
@@ -60,6 +64,8 @@ public class ShowReviewController {
         titoloRecensione.setText(review.getTitolo());
         nomeAutore.setText(String.valueOf(review.getAutore()));
         commento.setText(review.getRecensione());
+        votoRecensione.setText(review.getVoto());
+        reviewId = review.getReviewId();
     }
 
     @FXML public void acceptOrRefuseReview(ActionEvent actionEvent) {
@@ -82,6 +88,19 @@ public class ShowReviewController {
                 .append("}").toString();
 
         HttpResponse<String> response = reviewDAO.updateReviewState(Long.parseLong(review.getReviewId()),body);
+        if (response.body().contains("ACCEPTED")){
+            //inserire review id
+            System.out.println("VERO");
+            String url = "http://ec2-18-130-144-5.eu-west-2.compute.amazonaws.com/?review_id="+reviewId;
+            HttpClient client = HttpClient.newHttpClient();
+            System.out.println(url);
+            HttpRequest requestNotification = HttpRequest.newBuilder().GET().uri(URI.create(url)).build();
+            try {
+                HttpResponse<String> response2 = client.send(requestNotification, HttpResponse.BodyHandlers.ofString());
+            }catch (IOException | NumberFormatException | InterruptedException e){
+                e.printStackTrace();
+            }
+        }
         mainPage.setAcceptedOrRefused(true);
         stage.close();
     }

@@ -12,7 +12,7 @@ import java.net.http.HttpResponse;
 
 public class UserDAOimpl implements UserDAO{
 
-    private static final String getByUsernameOrEmail = "http://localhost:8080/users/usernameOrEmail/";
+    private static final String getByUsernameOrEmail = "http://muving-env-2.eba-xepwi2ws.eu-west-2.elasticbeanstalk.com/users/usernameOrEmail/";
 
     Token token;
 

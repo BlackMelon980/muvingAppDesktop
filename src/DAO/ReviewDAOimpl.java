@@ -18,7 +18,7 @@ import org.apache.http.HttpHeaders;
 
 public class ReviewDAOimpl implements ReviewDAO{
 
-    public static final String startURL = "http://localhost:8080/reviews";
+    public static final String startURL = "http://muving-env-2.eba-xepwi2ws.eu-west-2.elasticbeanstalk.com/reviews";
 
     @Override
     public HttpResponse<String> updateReviewState(Long reviewId, String state) {

@@ -99,9 +99,11 @@ public class ReviewsPageController implements Initializable {
             for (Object[] o : reviews) {
                 NumberFormat nf = NumberFormat.getNumberInstance();
                 nf.setMaximumFractionDigits(0);
-                String userId = nf.format(o[2]);
-                String reviewId = nf.format(o[7]);
-                reviewList.add(new Review(o[0].toString(), o[1].toString(), userId, o[3].toString(), o[4].toString(), o[5].toString(), o[6].toString(), reviewId));
+                String userId = nf.format(o[3]);
+                String reviewId = nf.format(o[8]);
+                if (o[9].toString().equals("AWAITING")) {
+                    reviewList.add(new Review(o[0].toString(), o[2].toString(), userId, o[4].toString(), o[5].toString(), o[6].toString(), o[7].toString(), reviewId));
+                }
             }
         }
     }
