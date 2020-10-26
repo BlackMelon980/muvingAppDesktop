@@ -21,7 +21,7 @@ public class UserDAOimpl implements UserDAO{
         User user;
         String ENDPOINT_URL = getByUsernameOrEmail  + "username=" + usernameOrEmail + "&email=" + usernameOrEmail;
 
-        HttpClient client = HttpClient.newHttpClient(); // SHUTDOWN?
+        HttpClient client = HttpClient.newHttpClient();
         HttpRequest requestUser = HttpRequest.newBuilder().uri(URI.create(ENDPOINT_URL)).build();
 
         try{

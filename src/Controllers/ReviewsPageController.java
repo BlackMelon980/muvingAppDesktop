@@ -41,6 +41,7 @@ public class ReviewsPageController implements Initializable {
     @FXML public Button logoutButton;
 
     @FXML public StackPane parentContainer;
+    @FXML public Button deleteButton;
     @FXML AnchorPane container;
 
 
@@ -88,14 +89,16 @@ public class ReviewsPageController implements Initializable {
         }else{
             reviews = reviewDAO.getReviewByStructureAndPlace(struttura.getText(),luogo.getText());
         }
-
         fillTable(reviews);
         table.setItems(reviewList);
+        deleteButton.setDisable(false);
     }
 
     private void fillTable(List<Object[]> reviews) {
+
+        reviewList.removeAll(reviewList);
+
         if(reviews != null){
-            reviewList.removeAll(reviewList);
             for (Object[] o : reviews) {
                 NumberFormat nf = NumberFormat.getNumberInstance();
                 nf.setMaximumFractionDigits(0);
@@ -129,10 +132,12 @@ public class ReviewsPageController implements Initializable {
         }
         stage.showAndWait();
         //controllo se ho chiuso la finestra premendo uno dei due bottoni
-        System.out.println(acceptedOrRefused);
+
         if(acceptedOrRefused){
             table.getItems().remove(selectedReview);
             table.refresh();
+            //aggiorno la variabile
+            setAcceptedOrRefused(false);
         }
     }
 
@@ -207,4 +212,8 @@ public class ReviewsPageController implements Initializable {
         this.acceptedOrRefused = acceptedOrRefused;
     }
 
+    public void deleteSearch(ActionEvent actionEvent) {
+        setTable();
+        deleteButton.setDisable(true);
+    }
 }

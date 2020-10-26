@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <StackPane fx:id="parentContainer" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ReviewsPageController">
    <children>
       <AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" stylesheets="/Layout/layout.css">
@@ -35,10 +34,15 @@
                                  </cursor>
                               </TextField>
                               <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="193.0" prefWidth="301.0" />
-                              <Button id="find-button" fx:id="searchButton" mnemonicParsing="false" onAction="#search" prefWidth="90.0" styleClass="button-type2" text="Cerca">
+                              <Button id="find-button" fx:id="deleteButton" disable="true" mnemonicParsing="false" onAction="#deleteSearch" prefWidth="120.0" styleClass="button-type2" text="Annulla">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button id="find-button" fx:id="searchButton" layoutX="817.0" layoutY="27.0" mnemonicParsing="false" onAction="#search" prefWidth="90.0" styleClass="button-type2" text="Cerca">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -61,6 +65,9 @@
                      <BorderPane.margin>
                         <Insets />
                      </BorderPane.margin>
+                     <padding>
+                        <Insets bottom="9.0" />
+                     </padding>
                   </VBox>
                </center>
                <bottom>
@@ -80,7 +87,7 @@
                <top>
                   <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="95.0" styleClass="red-button" text="Logout" BorderPane.alignment="CENTER_RIGHT">
                      <BorderPane.margin>
-                        <Insets right="39.0" top="13.0" />
+                        <Insets right="39.0" top="21.0" />
                      </BorderPane.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />

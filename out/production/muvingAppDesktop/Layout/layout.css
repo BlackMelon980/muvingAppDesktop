@@ -175,8 +175,8 @@ table layout
 
 #review-message{
     -fx-background-color: #2C2D30;
-    -fx-background-radius: 10;
-    -fx-border-radius: 10;
+    -fx-background-radius: 2;
+    -fx-border-radius: 2;
 }
 /*
 #review-box{
@@ -186,17 +186,17 @@ table layout
 }
 
  */
-
+/*
 .pane-description{
-    -fx-border-color: #3F3F3F;
-    -fx-border-width: 0 0 2 2;
-    -fx-border-radius: 0 0 0 5;
+    -fx-background-color: #2C2D30;
+    -fx-background-radius: 2;
+    -fx-border-radius: 2;
 }
-
+*/
 .pane-info{
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
-    -fx-background-color: #3F3F3F;
+    -fx-border-radius: 2;
+    -fx-background-radius: 2;
+    -fx-background-color: #2C2D30;
 }
 
 .review-description-label{

@@ -22,101 +22,125 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="21.0" />
                </padding>
                <children>
-                  <HBox alignment="CENTER" prefHeight="43.0" prefWidth="760.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="760.0" spacing="20.0">
                      <children>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" styleClass="pane-description">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="82.0" styleClass="pane-description">
                            <children>
-                              <Label layoutX="12.0" layoutY="6.0" styleClass="review-description-label" text="Luogo" />
+                              <Label layoutY="7.0" styleClass="review-description-label" text="Luogo:" />
                            </children>
+                           <HBox.margin>
+                              <Insets left="46.0" />
+                           </HBox.margin>
                         </Pane>
-                        <Pane layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="57.0" />
-                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="pane-info">
+                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" styleClass="pane-info">
                            <children>
                               <Label fx:id="nomeLuogo" layoutX="12.0" layoutY="6.0" styleClass="review-info-label" text="Luogo" />
                            </children>
                         </Pane>
                      </children>
+                     <padding>
+                        <Insets left="57.0" />
+                     </padding>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="25.0" layoutY="25.0" prefHeight="43.0" prefWidth="760.0">
+                  <HBox alignment="CENTER_LEFT" layoutX="25.0" layoutY="25.0" prefHeight="43.0" prefWidth="760.0" spacing="20.0">
                      <children>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" styleClass="pane-description">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="82.0" styleClass="pane-description">
                            <children>
-                              <Label layoutX="12.0" layoutY="6.0" styleClass="review-description-label" text="Struttura" />
+                              <Label layoutY="7.0" styleClass="review-description-label" text="Struttura:" />
                            </children>
+                           <HBox.margin>
+                              <Insets left="46.0" />
+                           </HBox.margin>
                         </Pane>
-                        <Pane layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="57.0" />
-                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="pane-info">
+                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" styleClass="pane-info">
                            <children>
                               <Label fx:id="nomeStruttura" layoutX="12.0" layoutY="6.0" styleClass="review-info-label" text="Nome struttura" />
                            </children>
                         </Pane>
                      </children>
+                     <padding>
+                        <Insets left="57.0" />
+                     </padding>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="25.0" layoutY="77.0" prefHeight="43.0" prefWidth="760.0">
+                  <HBox alignment="CENTER_LEFT" layoutX="25.0" layoutY="77.0" prefHeight="43.0" prefWidth="760.0" spacing="20.0">
                      <children>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" styleClass="pane-description">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="82.0" styleClass="pane-description">
                            <children>
-                              <Label layoutX="12.0" layoutY="6.0" styleClass="review-description-label" text="Autore" />
+                              <Label layoutY="7.0" styleClass="review-description-label" text="Autore:" />
                            </children>
+                           <HBox.margin>
+                              <Insets left="46.0" />
+                           </HBox.margin>
                         </Pane>
-                        <Pane layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="57.0" />
-                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="pane-info">
+                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" styleClass="pane-info">
                            <children>
                               <Label fx:id="nomeAutore" layoutX="12.0" layoutY="6.0" styleClass="review-info-label" text="Nome autore" />
                            </children>
                         </Pane>
                      </children>
+                     <padding>
+                        <Insets left="57.0" />
+                     </padding>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="25.0" layoutY="129.0" prefHeight="43.0" prefWidth="760.0">
+                  <HBox alignment="CENTER_LEFT" layoutX="25.0" layoutY="129.0" prefHeight="43.0" prefWidth="760.0" spacing="20.0">
                      <children>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" styleClass="pane-description">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="82.0" styleClass="pane-description">
                            <children>
-                              <Label layoutX="12.0" layoutY="6.0" styleClass="review-description-label" text="Data" />
+                              <Label layoutY="7.0" styleClass="review-description-label" text="Data:" />
                            </children>
+                           <HBox.margin>
+                              <Insets left="46.0" />
+                           </HBox.margin>
                         </Pane>
-                        <Pane layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="57.0" />
-                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="pane-info">
+                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" styleClass="pane-info">
                            <children>
                               <Label fx:id="dataRecensione" layoutX="12.0" layoutY="6.0" styleClass="review-info-label" text="Data" />
                            </children>
                         </Pane>
                      </children>
+                     <padding>
+                        <Insets left="57.0" />
+                     </padding>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="25.0" layoutY="181.0" prefHeight="43.0" prefWidth="760.0">
+                  <HBox alignment="CENTER_LEFT" layoutX="25.0" layoutY="181.0" prefHeight="43.0" prefWidth="760.0" spacing="20.0">
                      <children>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" styleClass="pane-description">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="82.0" styleClass="pane-description">
                            <children>
-                              <Label layoutX="12.0" layoutY="6.0" styleClass="review-description-label" text="Titolo" />
+                              <Label layoutY="7.0" styleClass="review-description-label" text="Titolo:" />
                            </children>
+                           <HBox.margin>
+                              <Insets left="46.0" />
+                           </HBox.margin>
                         </Pane>
-                        <Pane layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="57.0" />
-                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="pane-info">
+                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" styleClass="pane-info">
                            <children>
                               <Label fx:id="titoloRecensione" layoutX="12.0" layoutY="6.0" styleClass="review-info-label" text="Titolo" />
                            </children>
                         </Pane>
                      </children>
+                     <padding>
+                        <Insets left="57.0" />
+                     </padding>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="25.0" layoutY="233.0" prefHeight="43.0" prefWidth="760.0">
+                  <HBox alignment="CENTER_LEFT" layoutX="25.0" layoutY="233.0" prefHeight="43.0" prefWidth="760.0" spacing="20.0">
                      <children>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="133.0" styleClass="pane-description">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="82.0" styleClass="pane-description">
                            <children>
-                              <Label layoutX="12.0" layoutY="6.0" styleClass="review-description-label" text="Voto" />
+                              <Label layoutY="7.0" styleClass="review-description-label" text="Voto:" />
                            </children>
+                           <HBox.margin>
+                              <Insets left="46.0" />
+                           </HBox.margin>
                         </Pane>
-                        <Pane layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="57.0" />
-                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" style="-fx-border-color: black;" styleClass="pane-info">
+                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" styleClass="pane-info">
                            <children>
                               <Label fx:id="votoRecensione" layoutX="12.0" layoutY="6.0" styleClass="review-info-label" text="Voto" />
                            </children>
                         </Pane>
                      </children>
-                  </HBox>
-                  <HBox alignment="CENTER" layoutX="25.0" layoutY="285.0" prefHeight="43.0" prefWidth="760.0">
-                     <children>
-                        <Pane layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="57.0" />
-                        <Pane layoutX="210.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="363.0" />
-                     </children>
+                     <padding>
+                        <Insets left="57.0" />
+                     </padding>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="25.0" layoutY="337.0" prefHeight="117.0" prefWidth="760.0">
                      <children>
@@ -127,6 +151,9 @@
                            <padding>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
+                           <HBox.margin>
+                              <Insets top="8.0" />
+                           </HBox.margin>
                         </ScrollPane>
                      </children>
                   </HBox>
