@@ -30,5 +30,4 @@ public class UserSingleton {
         this.loggedUser.setToken(token);
     }
 
-
 }

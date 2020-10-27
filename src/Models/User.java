@@ -13,6 +13,14 @@ public class User {
 
     public User(){}
 
+    public User(String firstName,String lastName,String username,String password,Object[] roles){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.username = username;
+        this.roles = roles;
+    }
+
     public Integer getUserId() {
         return userId;
     }
